@@ -23,7 +23,7 @@ This project provides an automated pipeline for generating creative and targeted
 
 - Python 3.8+
 - Jupyter Notebook or Google Colab
-- An Anthropic API key
+- An Groq API key
 
 ---
 
@@ -31,7 +31,7 @@ This project provides an automated pipeline for generating creative and targeted
 
 ### 1. Get Your Anthropic API Key
 
-1. Go to [console.anthropic.com](https://console.anthropic.com) and log in
+1. Go to [console.groq.com](hhttps://console.groq.com/login) and log in
 2. Click on **API Keys** in the navigation
 3. Click **Create API Key**, give it a name (e.g., `campaign-generator`), and click **Submit**
 4. Copy the generated key — you'll need it in the next step
@@ -49,16 +49,9 @@ Or if running in Google Colab, the notebook will handle installation automatical
 In the notebook, set your API key:
 
 ```python
-import anthropic
-
-client = anthropic.Anthropic(api_key="your-api-key-here")
-```
-
-> **Security tip:** Use environment variables or a secrets manager rather than hardcoding your key:
-> ```python
-> import os
-> client = anthropic.Anthropic(api_key=os.environ.get("ANTHROPIC_API_KEY"))
-> ```
+from google.colab import userdata
+os.environ['GROQ_API_KEY'] = userdata.get('______')#Complete the code by calling the Groq API key
+ ```
 
 ---
 
@@ -95,13 +88,7 @@ Claude generates structured campaign content including taglines, ad copy, social
 
 ---
 
-## Notes
 
-- The notebook uses the `claude-sonnet-4-6` model by default (adjustable in the configuration cell)
-- API usage is billed per token — review [Anthropic's pricing](https://www.anthropic.com/pricing) before running at scale
-- Keep your API key secure and never commit it to version control
-
----
 
 ## License
 
